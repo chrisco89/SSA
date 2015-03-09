@@ -1,5 +1,14 @@
 $('document').ready( function() {
 	
+// Logout	
+	$('.logout > a').click( function(e) {
+		$(this).next().slideDown('fast');
+		e.preventDefault();
+	});
+	$('.logout .dropdown').mouseleave( function() {
+		$(this).slideUp('fast');
+	});
+	
 	$('.addimage').click( function(e) {
 		$(this).slideUp('fast');
 		$(this).next().slideDown('fast');
@@ -24,5 +33,6 @@ $('document').ready( function() {
 	$('td.date').click( function() {
 		$(this).attr('contentEditable', 'true');
 	});
+	
 	
 });
