@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Förskolebilder</title>
+	
+	<meta name="viewport" content="initial scale=1, width=device-width, minimum-scale=1, maximum-scale=1" />
+    <link rel="icon" href="/images/favicon.png">
+	
+	<link href="/styles/css/main.css" rel="stylesheet">
+	<link href="/ionicons-2.0.1/ionicons.min.css" rel="stylesheet">
+	
+	<script src="/js/jquery-1.11.2.min.js"></script>
+	<script src="/js/main.js"></script>
+</head>
+<body>
+	
+	<div id="toppanel">
+		<div class="logo"><span></span></div>
+		
+		<p>
+			Inloggad som 
+			<div class="logout">
+				<a href="#">Marie Andersson</a>
+				<div class="dropdown"><a href="/">Logga ut</a></div>
+			</div>
+		</p>
+	</div>
+	
+	<div id="content-area">
+		<div class="content">
+			<div class="module">
+				<div class="header cf">
+					<div class="btn-holder unavailable"><a href="#" class="btn">Skicka Skogsmarkens bilder</a></div>
+					<h2>Förskolan Skogsmarken</h2>
+				</div>
+				<div class="table cf">
+					
+				</div>
+				<a href="#" class="btn addimage">Lägg till bildobjekt</a>
+				<div class="uploader">
+					<img src="/images/uploadpics.png">
+				</div>
+				<div class="addmeta">
+					<table>
+						<thead>
+							<tr>
+								<th>Bild</th>
+								<th>Datum</th>
+								<th>Fotograf</th>
+								<th>Beskrivning</th>
+								<th>Personer på bilden</th>
+								<th>Avdelning</th>
+								<th>Plats</th>
+								<th>Uppladdare</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!--<tr>
+								<td class="thumb"><img src="/images/thumbnail.png" width="40"> <span class="filename">IMG0001.jpg</span></td>
+								<td>2014-08-26</td>
+								<td>Anna Jonsson</td>
+								<td>På den här bilden leker barnen i parken.</td>
+								<td>Fredrik, Maja och Roger.</td>
+								<td>Sockan</td>
+								<td>Parken</td>
+								<td>Marie Andersson</td>
+							</tr>-->
+							<tr>
+								<td class="thumb"><span class="nowrap"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
+								<td class="date">2014-08-26</td>
+								<td><input type="text" class="focus"></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>Marie Andersson</td>
+							</tr>
+							<tr>
+								<td class="thumb"><span class="nowrap"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
+								<td class="date">2014-08-26</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>Marie Andersson</td>
+							</tr>
+							<tr>
+								<td class="thumb"><span class="nowrap"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
+								<td class="date">2014-08-26</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>Marie Andersson</td>
+							</tr>
+							<tr>
+								<td class="thumb"><span class="nowrap"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
+								<td class="date">2014-08-26</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>Marie Andersson</td>
+							</tr>
+							<tr>
+								<td class="thumb"><span class="nowrap"><img src="/images/thumbnail.png" width="40"><span class="filename">filnamnet.jpg</span></span></td>
+								<td class="date">2014-06-10</td>
+								<td>Michelle Svensson</td>
+								<td>Här bygger barnen sandslott</td>
+								<td>Fia och Eric</td>
+								<td>Sockan</td>
+								<td>Stranden</td>
+								<td>Anna Gunnarsson</td>
+							</tr>
+							<tr>
+								<td class="thumb"><span class="nowrap"><img src="/images/thumbnail.png" width="40"><span class="filename">filnamnet.jpg</span></span></td>
+								<td class="date">2014-06-10</td>
+								<td>Michelle Svensson</td>
+								<td>Här bygger barnen sandslott</td>
+								<td>Fia och Eric</td>
+								<td>Sockan</td>
+								<td>Stranden</td>
+								<td>Anna Gunnarsson</td>
+							</tr>
+							<tr>
+								<td class="thumb"><span class="nowrap"><img src="/images/thumbnail.png" width="40"><span class="filename">filnamnet.jpg</span></span></td>
+								<td class="date">2014-06-10</td>
+								<td>Michelle Svensson</td>
+								<td>Här bygger barnen sandslott</td>
+								<td>Fia och Eric</td>
+								<td>Sockan</td>
+								<td>Stranden</td>
+								<td>Anna Gunnarsson</td>
+							</tr>
+						</tbody>
+					</table>
+					<a href="#" class="btn addimage">Lägg till bildobjekt</a>
+					<div class="uploader">
+						<img src="/images/uploadpics.png">
+					</div>
+				</div>
+				<div class="existing cf">
+					<h4>Tidigare uppladdade objekt</h4>
+					<img src="/images/existing.png">
+				</div>
+				<div class="footer cf">
+					<div class="btn-holder unavailable"><a href="#" class="btn unavailable">Skicka Skogsmarkens bilder</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="bottompanel" class="cf">
+		<div class="left">
+			<a href="#" class="add">Lägg till förskola</a>
+		</div>
+		<div class="right">
+			<a href="#" class="primary">Skicka alla bilder</a>
+		</div>
+	</div>
+	
+	<div class="lightbox adding">
+		<div class="dialog">
+			<div class="header">
+				<h3>Lägg till förskola</h3>
+				<div class="close"></div>
+			</div>
+			<div class="content">
+				<p>Skriv in förskolans namn för att sedan ladda upp bilder</p>
+				<input type="text" />
+				<a href="#" class="btn addschool">Lägg till förskola</a>
+			</div>
+		</div>
+		<div class="overlay"></div>
+	</div>
+	
+	<div class="lightbox image">
+		<div class="dialog">
+			<div class="header">
+				<h3>IMG0001.jpg</h3>
+				<div class="close"></div>
+			</div>
+			<div class="content">
+				<img src="/images/largeimg.png">
+			</div>
+		</div>
+		<div class="overlay"></div>
+	</div>
+	
+</body>
+</html>
