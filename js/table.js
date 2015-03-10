@@ -1,4 +1,5 @@
 $('document').ready( function() {
+	var actualInput;
 	var flag = true;
 	
 	$('table .thumb').click( function() {
