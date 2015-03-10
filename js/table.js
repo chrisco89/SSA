@@ -5,22 +5,6 @@ $('document').ready( function() {
 		$('.lightbox.image').fadeIn();
 	});
 	
-	$('td.date').click( function() {
-		if(flag){
-			var value = $(this).text();
-			var inputElem = "<input type='text' value='"+value+"'/>"; 
-			$(this).text("");
-			$(this).append(inputElem); 
-			flag=false;
-			e.stopPropagation(); // This is the preferred method.
-			return false;
-		}
-		else{
-				
-		}	
-		
-		//$(this).attr('contentEditable', 'true');
-	});
 	
 	$('td').click(function (){
 		if($('td.thumb') < 0) {
@@ -28,9 +12,13 @@ $('document').ready( function() {
 		}
 		if (flag){
 			var value = $(this).text();
-			var inputElem = "<input type='text' class='focus' value='"+value+"'/>"; 
+			var inputElem = "<input type='text' id='edit' value='"+value+"'/>"; 
 			$(this).text("");
 			$(this).append(inputElem);
+
+			$('#edit').focus();
+			$('#edit').setCursorToTextEnd();
+			
 			flag = false;
 			e.stopPropagation();
 			return false;
@@ -50,16 +38,26 @@ $('document').ready( function() {
 			var thisIsG = $('td').find('input');
 			
         	thisIs.parent().append(newVal);
-        	
         	thisIs.remove('input');
         	
         	
         	thisIsG.parent().append(newValG);
-        	thisIsG.remove('input');        	
-        	
+        	thisIsG.remove('input');        				
         	
         	flag=true;
 		}
 	});
 	
+	$("table tr").each(function () {
+		
+  	});
+	
+	
+	//Function to set the cursor to the end
+	(function($){
+    $.fn.setCursorToTextEnd = function() {
+        var $initialVal = this.val();
+        this.val($initialVal);
+    };
+	})(jQuery);
 });
