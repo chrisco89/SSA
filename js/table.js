@@ -6,10 +6,7 @@ $('document').ready( function() {
 	});
 	
 	
-	$('td').click(function (){
-		if($('td.thumb') < 0) {
-			return false;
-		}
+	$('td.editable').click(function (){
 		if (flag){
 			var value = $(this).text();
 			var inputElem = "<input type='text' id='edit' value='"+value+"'/>"; 
@@ -29,20 +26,25 @@ $('document').ready( function() {
 
 	});
 	
+	//Checks that the table rows are valid or not
+	$('table tr').each(function(){
+	    $('td',this).each(function() {
+	        if($(this).html() != '') {
+	            $(this).parent().addClass('valid');
+	        }
+	        else{
+		        $(this).parent().addClass('invalid');
+	        }
+	    });	
+	});
 	
 	$(document).keypress(function(e) {
    		if(e.which == 13 && flag == false) { //the input is activated
-        	var newVal = $('td.date').find('input').val();
-			var thisIs = $('td.date').find('input');
-			var newValG = $('td').find('input').val();
-			var thisIsG = $('td').find('input');
-			
+			var newVal = $('td.editable').find('input').val();
+			var thisIs = $('td.editable').find('input');        	
+        	
         	thisIs.parent().append(newVal);
-        	thisIs.remove('input');
-        	
-        	
-        	thisIsG.parent().append(newValG);
-        	thisIsG.remove('input');        				
+        	thisIs.remove('input');        				
         	
         	flag=true;
 		}
