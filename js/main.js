@@ -17,12 +17,12 @@ $('document').ready( function() {
 		$('.existing').hide();
 	});
 	
-	$('table .thumb').click( function() {
+	/*$('table .thumb').click( function() {
 		$('.lightbox.image').fadeIn();
 	});
 	
 	$('td.date').click( function() {
 		$(this).attr('contentEditable', 'true');
-	});
+	});*/
 	
 });
