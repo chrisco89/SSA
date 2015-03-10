@@ -275,6 +275,15 @@ body {
 						}
 					}
 				}
+				
+				&.valid {
+					animation: valid 1s ease;
+					-webkit-animation: valid 1s ease;
+				}
+				&.invalid {
+					animation: invalid 1s ease;
+					-webkit-animation: invalid 1s ease;
+				}
 			}
 			
 			th {
@@ -574,6 +583,62 @@ input[type="text"] {
 	padding: 9px;
 }
 
+
+@keyframes valid {
+	
+	0% {
+		background-color: rgba(178,229,225,0);
+	}
+	50% {
+		background-color: rgba(178,229,225,1);
+	}
+	100% {
+		background-color: rgba(178,229,225,0.1);
+	}
+	
+}
+
+@-webkit-keyframes valid {
+	
+	0% {
+		background-color: rgba(178,229,225,0);
+	}
+	50% {
+		background-color: rgba(178,229,225,1);
+	}
+	100% {
+		background-color: rgba(178,229,225,0.1);
+	}
+	
+}
+
+@keyframes invalid {
+	
+	0% {
+		background-color: rgba(241,210,210,0);
+	}
+	50% {
+		background-color: rgba(241,210,210,1);
+	}
+	100% {
+		background-color: rgba(241,210,210,0.1);
+	}
+	
+}
+
+@-webkit-keyframes invalid {
+	
+	0% {
+		background-color: rgba(241,210,210,0);
+	}
+	50% {
+		background-color: rgba(241,210,210,1);
+	}
+	100% {
+		background-color: rgba(241,210,210,0.1);
+	}
+	
+}
 
 
 

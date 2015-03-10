@@ -264,6 +264,12 @@ body {
             text-align: center; }
           #content-area .content table tr .tools:hover a {
             font-size: 14px; }
+        #content-area .content table tr.valid {
+          animation: valid 1s ease;
+          -webkit-animation: valid 1s ease; }
+        #content-area .content table tr.invalid {
+          animation: invalid 1s ease;
+          -webkit-animation: invalid 1s ease; }
       #content-area .content table th {
         font-size: 16px;
         font-weight: bold;
@@ -475,3 +481,32 @@ input[type="text"] {
   font-size: 16px;
   line-height: 20px;
   padding: 9px; }
+
+@keyframes valid {
+  0% {
+    background-color: rgba(178, 229, 225, 0); }
+  50% {
+    background-color: #b2e5e1; }
+  100% {
+    background-color: rgba(178, 229, 225, 0.1); } }
+@-webkit-keyframes valid {
+  0% {
+    background-color: rgba(178, 229, 225, 0); }
+  50% {
+    background-color: #b2e5e1; }
+  100% {
+    background-color: rgba(178, 229, 225, 0.1); } }
+@keyframes invalid {
+  0% {
+    background-color: rgba(241, 210, 210, 0); }
+  50% {
+    background-color: #f1d2d2; }
+  100% {
+    background-color: rgba(241, 210, 210, 0.1); } }
+@-webkit-keyframes invalid {
+  0% {
+    background-color: rgba(241, 210, 210, 0); }
+  50% {
+    background-color: #f1d2d2; }
+  100% {
+    background-color: rgba(241, 210, 210, 0.1); } }
