@@ -49,6 +49,7 @@
 						<table>
 							<thead>
 								<tr>
+									<th>&nbsp;</th>
 									<th>Bild</th>
 									<th>Datum</th>
 									<th>Fotograf</th>
@@ -61,17 +62,50 @@
 								</tr>
 							</thead>
 							<tbody>
-								<!--<tr>
-									<td class="thumb"><img src="/images/thumbnail.png" width="40"> <span class="filename">IMG0001.jpg</span></td>
-									<td>2014-08-26</td>
-									<td>Anna Jonsson</td>
-									<td>På den här bilden leker barnen i parken.</td>
-									<td>Fredrik, Maja och Roger.</td>
-									<td>Sockan</td>
-									<td>Parken</td>
+								<tr id="deleteRow" class="added">
+									<td class="validity-mark"></td>
+									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
+									<td class="date editable">2014-08-26</td>
+									<td class="editable"></td>
+									<td class="editable textarea"></td>
+									<td class="editable"></td>
+									<td class="editable"></td>
+									<td class="editable"></td>
 									<td>Marie Andersson</td>
-								</tr>-->
-								<tr>
+									<td class="tools">
+										<a href="#" class="delete">Radera</a>
+									</td>
+								</tr>
+								<tr class="added">
+									<td class="validity-mark"></td>
+									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
+									<td class="date editable">2014-08-26</td>
+									<td class="editable"></td>
+									<td class="editable textarea"></td>
+									<td class="editable"></td>
+									<td class="editable"></td>
+									<td class="editable"></td>
+									<td>Marie Andersson</td>
+									<td class="tools">
+										<a href="#" class="delete">Radera</a>
+									</td>
+								</tr>
+								<tr class="added">
+									<td class="validity-mark"></td>
+									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
+									<td class="date editable">2014-08-26</td>
+									<td class="editable"></td>
+									<td class="editable textarea"></td>
+									<td class="editable"></td>
+									<td class="editable"></td>
+									<td class="editable"></td>
+									<td>Marie Andersson</td>
+									<td class="tools">
+										<a href="#" class="delete">Radera</a>
+									</td>
+								</tr>
+								<tr class="added">
+									<td class="validity-mark"></td>
 									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
 									<td class="date editable">2014-08-26</td>
 									<td class="editable"></td>
@@ -85,45 +119,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
-									<td class="date editable">2014-08-26</td>
-									<td class="editable"></td>
-									<td class="editable textarea"></td>
-									<td class="editable"></td>
-									<td class="editable"></td>
-									<td class="editable"></td>
-									<td>Marie Andersson</td>
-									<td class="tools">
-										<a href="#" class="delete">Radera</a>
-									</td>
-								</tr>
-								<tr>
-									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
-									<td class="date editable">2014-08-26</td>
-									<td class="editable"></td>
-									<td class="editable textarea"></td>
-									<td class="editable"></td>
-									<td class="editable"></td>
-									<td class="editable"></td>
-									<td>Marie Andersson</td>
-									<td class="tools">
-										<a href="#" class="delete">Radera</a>
-									</td>
-								</tr>
-								<tr>
-									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">IMG0001.jpg</span></span></td>
-									<td class="date editable">2014-08-26</td>
-									<td class="editable"></td>
-									<td class="editable textarea"></td>
-									<td class="editable"></td>
-									<td class="editable"></td>
-									<td class="editable"></td>
-									<td>Marie Andersson</td>
-									<td class="tools">
-										<a href="#" class="delete">Radera</a>
-									</td>
-								</tr>
-								<tr>
+									<td class="validity-mark"></td>
 									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">filnamnet.jpg</span></span></td>
 									<td class="date editable">2014-06-10</td>
 									<td class="editable">Michelle Svensson</td>
@@ -137,6 +133,7 @@
 									</td>
 								</tr>
 								<tr>
+									<td class="validity-mark"></td>
 									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">filnamnet.jpg</span></span></td>
 									<td class="date editable">2014-06-10</td>
 									<td class="editable">Michelle Svensson</td>
@@ -150,6 +147,7 @@
 									</td>
 								</tr>
 								<tr>
+									<td class="validity-mark"></td>
 									<td class="thumb"><span class="nowrap cf"><img src="/images/thumbnail.png" width="40"><span class="filename">filnamnet.jpg</span></span></td>
 									<td class="date editable">2014-06-10</td>
 									<td class="editable">Michelle Svensson</td>
@@ -227,6 +225,23 @@
 			</div>
 			<div class="content">
 				<img src="/images/largeimg.png">
+			</div>
+		</div>
+		<div class="overlay"></div>
+	</div>
+	
+	<div class="lightbox deleterow">
+		<div class="dialog">
+			<div class="header">
+				<h3>Radera bildobjekt</h3>
+				<div class="close"></div>
+			</div>
+			<div class="content">
+				<p>Är du säker på att du vill radera denna bild och dess tillhörande metadata?</p>
+				<div class="twobtns">
+					<a href="#" class="btn yes">Ja</a>
+					<a href="#" class="btn no">Nej</a>
+				</div>
 			</div>
 		</div>
 		<div class="overlay"></div>

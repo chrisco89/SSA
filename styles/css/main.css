@@ -200,8 +200,7 @@ body {
             font-size: 1.2em;
             position: relative;
             top: 1px;
-            margin-right: 6px;
-            margin-left: -30px; }
+            margin-right: 6px; }
         #content-area .content .module .header .btn-holder {
           float: right; }
           #content-area .content .module .header .btn-holder .btn {
@@ -239,16 +238,19 @@ body {
         padding: 15px 0;
         text-align: right; }
     #content-area .content table {
-      border: 2px solid #ccc;
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
       margin-bottom: 10px; }
       #content-area .content table tr {
-        position: relative; }
+        position: relative;
+        transition: all 8s ease;
+        -webkit-transition: all 8s ease;
+        opacity: 1; }
         #content-area .content table tr .tools {
           width: 20px;
-          overflow: hidden; }
+          overflow: hidden;
+          padding: 15px 0 15px 8px; }
           #content-area .content table tr .tools a {
             font-style: italic;
             color: #999;
@@ -259,36 +261,74 @@ body {
             content: "\f252";
             display: inline-block;
             font-family: 'Ionicons';
-            font-size: 20px;
-            width: 20px;
+            font-size: 24px;
             text-align: center; }
           #content-area .content table tr .tools:hover a {
             font-size: 14px; }
-        #content-area .content table tr.valid {
+        #content-area .content table tr.valid td {
           animation: valid 1s ease;
           -webkit-animation: valid 2s ease; }
-        #content-area .content table tr.invalid {
+          #content-area .content table tr.valid td.validity-mark {
+            animation: none;
+            -webkit-animation: none; }
+            #content-area .content table tr.valid td.validity-mark:before {
+              content: "\f3fe";
+              font-family: 'Ionicons';
+              font-size: 24px;
+              display: inline; }
+          #content-area .content table tr.valid td.tools {
+            animation: none;
+            -webkit-animation: none; }
+        #content-area .content table tr.invalid td {
           animation: invalid 1s ease;
           -webkit-animation: invalid 2s ease; }
+          #content-area .content table tr.invalid td.validity-mark {
+            animation: none;
+            -webkit-animation: none; }
+          #content-area .content table tr.invalid td.tools {
+            animation: none;
+            -webkit-animation: none; }
+        #content-area .content table tr.deleting {
+          transform: scale(16);
+          -webkit-transform: scale(16);
+          opacity: 0; }
+        #content-area .content table tr.added td {
+          animation: added 1s ease;
+          -webkit-animation: added 2s ease; }
+          #content-area .content table tr.added td.validity-mark {
+            animation: none;
+            -webkit-animation: none; }
+          #content-area .content table tr.added td.tools {
+            animation: none;
+            -webkit-animation: none; }
       #content-area .content table th {
         font-size: 16px;
         font-weight: bold;
         color: #444;
         padding: 12px 10px;
-        border-bottom: 2px solid #ccc;
-        border-left: 1px solid #ccc;
+        border: 2px solid #ccc;
+        border-width: 2px 0 2px 1px;
         background-color: #f9f9f9;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis; }
+        #content-area .content table th:first-child {
+          border: none;
+          background: none; }
+        #content-area .content table th:nth-child(2) {
+          border-left-width: 2px; }
+        #content-area .content table th:last-child {
+          border-width: 0 0 0 2px;
+          background: none; }
       #content-area .content table td {
         border: 1px solid #ddd;
         border-weight: 0 0 1px 1px;
         vertical-align: middle;
-        padding: 15px 10px;
+        padding: 10px;
         position: relative;
+        height: 42px;
         font-size: 14px;
-        line-height: 41px;
+        line-height: 26px;
         color: #555;
         white-space: nowrap;
         overflow: hidden;
@@ -319,9 +359,22 @@ body {
         #content-area .content table td.thumb img {
           float: left;
           margin: 5px 6px 5px 0; }
+        #content-area .content table td.validity-mark {
+          cursor: default;
+          padding: 15px 8px 15px 0; }
         #content-area .content table td .focus:hover {
           background: none;
           cursor: default; }
+        #content-area .content table td.textarea {
+          white-space: normal; }
+        #content-area .content table td:first-child {
+          border: none;
+          background: none; }
+        #content-area .content table td:nth-child(2) {
+          border-left-width: 2px; }
+        #content-area .content table td:last-child {
+          border-width: 0 0 0 2px;
+          background: none; }
 
 .btn-holder {
   display: inline-block;
@@ -412,9 +465,34 @@ body {
 .faq-container {
   width: 240px;
   position: fixed;
-  right: 30px;
-  top: 30px;
-  z-index: -10; }
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -10;
+  padding: 30px;
+  overflow: auto; }
+  .faq-container h3 {
+    font-size: 2.4em;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 30px; }
+  .faq-container .item {
+    border: 1px solid #999;
+    border-width: 1px 0; }
+    .faq-container .item .question p {
+      color: #fff;
+      font-size: 1.8em;
+      padding: 10px 0; }
+      .faq-container .item .question p:before {
+        content: "\f123";
+        font-family: 'Ionicons';
+        margin-right: 6px; }
+    .faq-container .item .answer {
+      display: none; }
+      .faq-container .item .answer p {
+        padding: 0 0 10px 22px;
+        font-size: 1.6em;
+        color: #ddd; }
 
 .lightbox {
   position: fixed;
@@ -480,6 +558,22 @@ body {
       display: inline-block; }
   .lightbox.image {
     display: none; }
+  .lightbox.deleterow {
+    display: none; }
+    .lightbox.deleterow .content {
+      padding: 40px 20px;
+      text-align: center; }
+      .lightbox.deleterow .content p {
+        font-size: 1.6em;
+        margin-bottom: 30px; }
+      .lightbox.deleterow .content .btn {
+        margin: 20px 10px 0 10px;
+        display: inline-block;
+        width: 100px; }
+        .lightbox.deleterow .content .btn.yes {
+          background-color: #666; }
+          .lightbox.deleterow .content .btn.yes:hover {
+            background-color: #888; }
 
 input[type="text"] {
   -webkit-appearance: none;
@@ -505,6 +599,20 @@ textarea {
   resize: vertical;
   vertical-align: top; }
 
+@keyframes added {
+  0% {
+    background-color: transparent; }
+  50% {
+    background-color: rgba(0, 0, 0, 0.05); }
+  100% {
+    background-color: transparent; } }
+@-webkit-keyframes added {
+  0% {
+    background-color: transparent; }
+  50% {
+    background-color: rgba(0, 0, 0, 0.05); }
+  100% {
+    background-color: transparent; } }
 @keyframes valid {
   0% {
     background-color: rgba(178, 229, 225, 0); }
@@ -533,3 +641,5 @@ textarea {
     background-color: #f1d2d2; }
   100% {
     background-color: rgba(241, 210, 210, 0.1); } }
+
+/*# sourceMappingURL=main.css.map */

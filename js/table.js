@@ -90,7 +90,7 @@ $('document').ready( function() {
 	  	} 	
   	});
 	
-	$('td').click(function(e) {
+	/*$('td').click(function(e) {
 		if($(this).children("input").length > 0){			
 		
 		}
@@ -123,7 +123,7 @@ $('document').ready( function() {
 				return false;
 			}
 		}
-  	});
+  	});*/
 	
 	//Function to set the cursor to the end
 	(function($){
