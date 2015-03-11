@@ -16,7 +16,7 @@ $('document').ready( function() {
 	});
 	
 	$('.lightbox .close, .lightbox .overlay, .lightbox .btn').click( function() {
-		$(this).parents('.lightbox').fadeOut();
+		$(this).parents('.lightbox').fadeOut('fast');
 	});
 	
 	$('.uploader').click( function() {
@@ -40,12 +40,23 @@ $('document').ready( function() {
 		$('.wrapper').toggleClass('faqactive');
 	});
 	
-	
 	$('.btn-holder.send').click( function(e) {
 		$('.module.sendexample table, .module.sendexample .btn, .module.sendexample .uploader, .module.sendexample .footer').hide();
 		$('.module.sendexample .sent').fadeIn('fast');
 		e.preventDefault();
 	});
 	
+	$('.tools').click( function() {
+		$('.lightbox.deleterow').fadeIn();
+	});
+	
+	$('.lightbox.deleterow .btn.yes').click( function() {
+		$('#deleteRow').addClass('deleting').fadeOut('slow');
+	});
+	
+	$('.faq-container .question').click( function() {
+		$(this).toggleClass('active');
+		$(this).next().slideToggle('fast');
+	});
 	
 });
