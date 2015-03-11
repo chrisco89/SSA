@@ -266,10 +266,10 @@ body {
             font-size: 14px; }
         #content-area .content table tr.valid {
           animation: valid 1s ease;
-          -webkit-animation: valid 1s ease; }
+          -webkit-animation: valid 2s ease; }
         #content-area .content table tr.invalid {
           animation: invalid 1s ease;
-          -webkit-animation: invalid 1s ease; }
+          -webkit-animation: invalid 2s ease; }
       #content-area .content table th {
         font-size: 16px;
         font-weight: bold;
@@ -294,7 +294,7 @@ body {
         overflow: hidden;
         text-overflow: ellipsis; }
         #content-area .content table td:hover {
-          background-color: #f9f9f9;
+          background-color: rgba(0, 0, 0, 0.05);
           cursor: pointer; }
         #content-area .content table td.thumb:hover:before {
           content: "\f21f";
@@ -319,6 +319,9 @@ body {
         #content-area .content table td.thumb img {
           float: left;
           margin: 5px 6px 5px 0; }
+        #content-area .content table td .focus:hover {
+          background: none;
+          cursor: default; }
 
 .btn-holder {
   display: inline-block;
@@ -406,6 +409,13 @@ body {
     #bottompanel a:hover {
       background-color: #666; }
 
+.faq-container {
+  width: 240px;
+  position: fixed;
+  right: 30px;
+  top: 30px;
+  z-index: -10; }
+
 .lightbox {
   position: fixed;
   top: 0;
@@ -481,6 +491,19 @@ input[type="text"] {
   font-size: 16px;
   line-height: 20px;
   padding: 9px; }
+
+textarea {
+  -webkit-appearance: none;
+  background-color: #f9f9f9;
+  border: 1px solid #b3b3b3;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 9px;
+  resize: vertical;
+  vertical-align: top; }
 
 @keyframes valid {
   0% {
