@@ -145,6 +145,7 @@ body {
 	-webkit-transition: all 0.25s ease;
 	background: #fff;
 	right: 0;
+	z-index: 200;
 	
 	.content {
 		margin: 50px 6%;
@@ -251,29 +252,77 @@ body {
 				.tools {
 					width: 20px;
 					overflow: hidden;
-					padding: 15px 0 15px 8px;
+					padding: 0 0 0 8px;
+					cursor: pointer;
 					
 					a {
-						font-style: italic;
-						color: #999;
-						font-size: 0;
+						display: block;
+						padding: 5px 0;
+						margin-bottom: 3px;
 						transition: all 0.25s ease;
 						-webkit-transition: all 0.25s ease;
+						
+						span {
+							font-size: 0;
+							color: #999;
+							font-style: italic;
+							transition: all 0.25s ease;
+							-webkit-transition: all 0.25s ease;
+						}
+						
+						&.delete {
+							
+							&:before {
+								content: "\f252";
+								display: inline-block;
+								font-family: 'Ionicons';
+								font-size: 24px;
+								text-align: center;
+								opacity: 0;
+								transition: all 0.25s ease;
+								-webkit-transition: all 0.25s ease;
+								color: #444;
+								margin-right: 5px;
+								width: 24px;
+							}
+						}
+						
+						&.return {
+							
+							&:before {
+								content: "\f3bf";
+								display: inline-block;
+								font-family: 'Ionicons';
+								font-size: 24px;
+								text-align: center;
+								opacity: 0;
+								transition: all 0.25s ease;
+								-webkit-transition: all 0.25s ease;
+								color: #444;
+								margin-right: 5px;
+								width: 24px;
+							}
+						}
+						
+						&:hover {
+							opacity: 0.7;
+						}
 					}
 					
-					&:before {
-						content: "\f252";
-						display: inline-block;
-						font-family: 'Ionicons';
-						font-size: 24px;
-						text-align: center;
-					}
+					
 					
 					&:hover {
 						
-						a {
+						a span {
 							font-size: 14px;
 						}
+					}
+				}
+				
+				&:hover {
+					
+					.tools a:before {
+						opacity: 1;
 					}
 				}
 				
@@ -386,9 +435,12 @@ body {
 				overflow: hidden;
 				text-overflow: ellipsis;
 				
-				&:hover {
-					background-color: rgba(0,0,0,0.05);
-					cursor: pointer;
+				&.editable {
+					
+					&:hover {
+						background-color: rgba(0,0,0,0.05);
+						cursor: pointer;
+					}
 				}
 				
 				&.thumb {
@@ -455,6 +507,13 @@ body {
 				&:last-child {
 					border-width: 0 0 0 2px;
 					background: none;
+				}
+				
+				input[type="text"] {
+					height: 34px;
+					font-size: 14px;
+					line-height: 18px;
+					padding: 8px;
 				}
 			}
 		}
@@ -539,6 +598,25 @@ body {
 		float: right;
 		position: relative;
 		
+		&.available {
+			
+			&:before {
+				display: none;
+			}
+			
+			a {
+				background-color: #666;
+				
+				&:hover {
+					background-color: #888;
+				}
+				
+				&:active {
+					background-color: #4d4d4d;
+				}
+			}
+		}
+		
 		&:before {
 			content: "";
 			display: block;
@@ -586,7 +664,7 @@ body {
 	right: 0;
 	top: 0;
 	bottom: 0;
-	z-index: -10;
+	z-index: 10;
 	padding: 30px;
 	overflow: auto;
 	
@@ -602,6 +680,7 @@ body {
 		border-width: 1px 0;
 		
 		.question {
+			cursor: pointer;
 			
 			p {
 				color: #fff;
@@ -612,6 +691,13 @@ body {
 					content: "\f123";
 					font-family: 'Ionicons';
 					margin-right: 6px;
+				}
+			}
+			
+			&.active {
+				
+				p:before {
+					content: "\f126";
 				}
 			}
 		}
@@ -635,7 +721,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: 9999;
+	z-index: 5000;
 	
 	.overlay {
 		background-color: #fff;
@@ -695,13 +781,9 @@ body {
 				}
 			}
 		}
-		
-		.content {
-			
-		}
 	}
 	
-	&.adding {
+	&.adding, &.return {
 		
 		.content {
 			padding: 40px 20px;
@@ -716,10 +798,14 @@ body {
 				margin: 20px 0 0 0;
 				display: inline-block;
 			}
+			
+			textarea {
+				height: 120px;
+			}
 		}
 	}
 	
-	&.image {
+	&.image, &.return {
 		display: none;
 	}
 	
@@ -756,38 +842,47 @@ input[type="text"] {
 	-webkit-appearance: none;
 	background-color: #f9f9f9;
 	border: 1px solid #b3b3b3;
+	border-radius: 4px;
 	box-sizing: border-box;
 	width: 100%;
 	height: 40px;
 	font-size: 16px;
 	line-height: 20px;
 	padding: 9px;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,0.15);
 }
 
 textarea {
 	-webkit-appearance: none;
 	background-color: #f9f9f9;
 	border: 1px solid #b3b3b3;
+	border-radius: 3px;
 	box-sizing: border-box;
 	width: 100%;
-	height: 40px;
-	font-size: 16px;
-	line-height: 20px;
-	padding: 9px;
+	height: 34px;
+	font-size: 14px;
+	line-height: 18px;
+	padding: 8px;
 	resize: vertical;
 	vertical-align: top;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,0.1);
+}
+
+.ui-autocomplete {
+	z-index: 9999 !important;
+	position: fixed !important;
 }
 
 @keyframes added {
 	
 	0% {
-		background-color: rgba(0,0,0,0);
+		background-color: rgba(0,0,255,0);
 	}
 	50% {
-		background-color: rgba(0,0,0,0.05);
+		background-color: rgba(0,0,255,0.05);
 	}
 	100% {
-		background-color: rgba(0,0,0,0);
+		background-color: rgba(0,0,255,0);
 	}
 	
 }
@@ -795,13 +890,13 @@ textarea {
 @-webkit-keyframes added {
 	
 	0% {
-		background-color: rgba(0,0,0,0);
+		background-color: rgba(0,0,255,0);
 	}
 	50% {
-		background-color: rgba(0,0,0,0.05);
+		background-color: rgba(0,0,255,0.1);
 	}
 	100% {
-		background-color: rgba(0,0,0,0);
+		background-color: rgba(0,0,255,0);
 	}
 	
 }

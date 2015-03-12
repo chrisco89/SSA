@@ -1,5 +1,31 @@
 $('document').ready( function() {
 	
+    var schoolArray = [
+		'Skogsbacken',
+		'Skogsstjärnan',
+		'Skogsgläntan',
+		'Skogslandet',
+		'Skogsbacken',
+		'Skogsbyns Friförskola',
+		'Skogsmarken',
+		'Skogsåsen',
+		'Skogsrosen',
+		'Tempeltrappan',
+		'Tegeludden',
+		'Terrassen',
+		'Stormhatten',
+		'Terpet',
+		'Terrärier',
+		'ExempelTer'
+		];
+		
+		$( '#schools' ).autocomplete({
+			source: schoolArray
+		});
+	
+		$('#schools').attr('autocomplete', 'on');
+	
+	
 // Logout	
 	$('.logout > a').click( function(e) {
 		$(this).next().slideDown('fast');
@@ -50,13 +76,18 @@ $('document').ready( function() {
 		$('.lightbox.deleterow').fadeIn();
 	});
 	
-	$('.lightbox.deleterow .btn.yes').click( function() {
+	$('.removetr').click( function() {
 		$('#deleteRow').addClass('deleting').fadeOut('slow');
 	});
 	
-	$('.faq-container .question').click( function() {
+	$('.faq-container .item .question').click( function() {
 		$(this).toggleClass('active');
 		$(this).next().slideToggle('fast');
+	});
+	
+	$('a.return').click( function(e) {
+		e.preventDefault();
+		$('.lightbox.return').fadeIn();
 	});
 	
 });
