@@ -1,18 +1,25 @@
 $('document').ready( function() {
 	var flag = true;
 	var editType = "";
+	var nextLabel = "";
+	var lastValue = "";
+	var  prevLastValue = "";
 	
 	$('table .thumb').click( function() {
 		$('.lightbox.image').fadeIn();
 	});
 	
-	/*$('body').keyup(function(e) {
-    	console.log('keyup called');
-	    var code = e.keyCode || e.which;
-    	if (code == '9') {
-	    	alert('Tab pressed');
+	$('body').keyup(function(e) {
+		if(flag==false){
+		    var code = e.keyCode || e.which;
+	    	if (code == '9') {
+		    	closeLock();
+		    	if($('td.editable').hasClass('nextEditable')){
+					$('td.nextEditable').trigger("click");
+		    	}
+	    	}
     	}
-	});*/	
+	});	
 	
 	
 	$('td.editable').click(function (e){
@@ -29,7 +36,25 @@ $('document').ready( function() {
 		if (flag){
 			$(this).text("");
 			$(this).append(inputElem);
-
+			$(this).parent('tr').removeClass('lastEditable');
+			
+			lastValue = $(this).parent('tr').find('td:eq(7)').html();
+			prevLastValue = $(this).parent('tr').find('td:eq(6)').html();
+			
+			nextLabel = $(this).closest('td').next().text(); //Saves value of next label
+			$(this).closest('td').next().addClass('nextEditable');
+			
+			if (prevLastValue != ""){
+				$(this).closest('td').next().addClass('lastEditable');
+			}
+			
+			
+			if($(this).hasClass('nextEditable')){
+				$(this).removeClass('nextEditable');
+			}
+			
+			if($("tr:last"))
+			
 			$('#edit').focus();
 			$('#edit').setCursorToTextEnd();
 			if (e.which == 9) {
@@ -44,35 +69,31 @@ $('document').ready( function() {
 		}
 	});	
 	
-	
-	$("#edit").on("keydown", function(e) {
-	    var code = e.keyCode || e.which;
-	    
-	    if ( code == 13 || code == 9 ) {
-	        e.preventDefault();
-	        alert("sup");
-	        return false;
-	    }
-	});
-	
-	
-	
 	//Checks that the table rows are valid or not
-	$('table tr').each(function(){
-	    $('td',this).each(function() {
-	        if($(this).html() != '') {
-	            $(this).parent().addClass('valid');
-	        }
-	        else{
-		        $(this).parent().addClass('invalid');
-	        }
-	    });	
-	});
+	//checkRows();
+	
+	function checkRows(){
+		$('table tr').each(function(){
+		    $('td',this).each(function() {
+		        if($("td:empty")) {
+		            $(this).parent().addClass('invalid');
+		        }
+		        else{
+		        	$(this).parent().addClass('valid');
+		        }
+		    });	
+		});
+	}
+	
 	
 	//If pressing enter
 	$(document).keypress(function(e) {
+		var code = e.keyCode || e.which;
    		if(e.which == 13 && flag == false) { //the input is activated
 			closeLock();
+		}
+		if(e.which == 9 && flag == false) { //the input is activated
+			alert("its a tab");
 		}
 	});	
   	
@@ -133,9 +154,6 @@ $('document').ready( function() {
     };
 	})(jQuery);
 	
-	function openLock(){
-		
-	}
 	
 	function closeLock(){
 		if (editType=="textA"){
@@ -145,6 +163,10 @@ $('document').ready( function() {
 	        thisIs.parent().append(newVal);
 	        thisIs.remove('textarea'); 
 	        flag = true; 
+	        
+	        if(lastValue != ""){
+	        	$('td.editable').parent().addClass('valid');	    
+	        }
 
 		}
 		else{
@@ -152,9 +174,16 @@ $('document').ready( function() {
 			var thisIs = $('td.editable').find('input');        	
         	
 	        thisIs.parent().append(newVal);
-	        thisIs.remove('input'); 
+	        thisIs.remove('input');
 	        flag = true; 
+	        
+	        if(lastValue != ""){
+	        	$('td.lastEditable').parent().addClass('valid');
+	        	$('td.lastEditable').parent().removeClass('added');
+	        }
+	        
 		}
+		
 		
 	}
 });
